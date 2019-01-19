@@ -2,6 +2,7 @@ FROM python:2.7-stretch
 
 LABEL maintainer "Taketoshi Kazusa"
 
+# Install google cloud sdk
 ARG CLOUD_SDK_VERSION=229.0.0
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 
@@ -27,4 +28,5 @@ RUN apt-get update -qqy && apt-get install -qqy \
   gcloud config set metrics/environment github_docker_image && \
   gcloud --version
 VOLUME ["/root/.config"]
+
 
