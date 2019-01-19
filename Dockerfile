@@ -66,36 +66,11 @@ RUN set -ex \
 	\
 	&& python2 --version
 
-ENV PYTHON_PIP_VERSION 18.1
-
-RUN set -ex; \
-	\
-	wget -O get-pip.py 'https://bootstrap.pypa.io/get-pip.py'; \
-	\
-	python get-pip.py \
-		--disable-pip-version-check \
-		--no-cache-dir \
-		"pip==$PYTHON_PIP_VERSION" \
-	; \
-	pip --version; \
-	\
-	find /usr/local -depth \
-		\( \
-			\( -type d -a \( -name test -o -name tests \) \) \
-			-o \
-			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
-		\) -exec rm -rf '{}' +; \
-	rm -f get-pip.py
-
-
-RUN cp /usr/local/bin/pip3.7 /usr/local/bin/pip3 # enable pip3
-
 RUN ls -Fla /usr/local/bin/p* \
     && which python  && python -V \
     && which python2 && python2 -V \
     && which python3 && python3 -V \
     && which pip     && pip -V \
-    && which pip2    && pip2 -V \
     && which pip3    && pip3 -V
 
-CMD ["python2"]
+CMD ["python3"]
