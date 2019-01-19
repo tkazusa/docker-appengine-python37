@@ -87,7 +87,8 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
-RUN pip install --no-cache-dir virtualenv
+
+RUN cp /usr/local/bin/pip3.7 /usr/local/bin/pip3 # enable pip3
 
 RUN ls -Fla /usr/local/bin/p* \
     && which python  && python -V \
