@@ -70,7 +70,6 @@ RUN ls -Fla /usr/local/bin/p* \
     && which python  && python -V \
     && which python2 && python2 -V \
     && which python3 && python3 -V \
-    && which pip     && pip -V \
     && which pip3    && pip3 -V
 
 CMD ["python3"]
